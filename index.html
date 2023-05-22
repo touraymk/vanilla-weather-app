@@ -14,7 +14,56 @@
 </head>
 
 <body>
-  <div class="container"></div>
+  <div class="container">
+    <div class="weather-app-wrapper">
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-4">
+            <div class="overwiev">
+              <div class="city-country">
+                <h1 id="city">Bridgetown</h1>
+              </div>
+              <ul>
+                <li id="country">Barbados</li>
+                <li id="current-time">Monday 22:29</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex">
+          <div class="col-6">
+            <div class="d-flex temperature">
+              <h2><span class="current-temp" id="temperature">29</span><span class="units"><a href="#" id="celsius-link"
+                    class="active">&deg;C</a> |
+                  <a href="#" id="fahrenheit-link">&deg;F</a></span></h2>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="weather-description">
+              <ul>
+                <li id="description">It will be sunny</li>
+                <li>↖️ <span id="wind"></span>3 m/s</li>
+                <li>💧 <span id="humidity"></span>79 %</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="temperature-description">
+          <span>Feels like <span id="feel-temperature">32</span>&deg;C</span>
+        </div>
+      </div>
+      <footer>
+        <small>
+          <a href="https://github.com/touraymk/vanilla-weather-app" target="_blank"
+            rel="noopener noreferrer">Open-sourced
+            code</a>
+          by <a href="https://www.linkedin.com/in/mariama-kjellstr%C3%B8m-touray-9b0637262/">Mariama Touray</a>
+        </small>
+      </footer>
+    </div>
+  </div>
 
 
   <script src="src/app.js"></script>
