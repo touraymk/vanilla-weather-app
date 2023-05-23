@@ -36,6 +36,17 @@ a {
   color: teal;
 }
 
+form {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
+img {
+  bottom: 10px;
+  position: relative;
+}
+
 .weather-app-wrapper {
   margin: 30px auto;
   max-width: 600px;
@@ -54,8 +65,28 @@ a {
   margin-bottom: 20px;
 }
 
-.city-country {
+.search-form {
+  position: relative;
   display: flex;
+}
+
+.search-field {
+  width: 180px;
+  max-height: 35px;
+}
+
+.buttons {
+  position: relative;
+  left: 15px;
+  display: flex;
+  justify-content: space-around ;
+}
+
+.btn {
+  max-width: 66px;
+  bottom: 3px;
+  position: relative;
+  max-height: 35px;
 }
 
 .current-temp {
@@ -71,17 +102,22 @@ a {
 }
 
 .temperature {
+  display: flex;
   margin-top: 20px;
   text-decoration: none;
+}
+
+
+.city-country {
+  display: flex;
 }
 
 .weather-description ul {
   display: grid;
   position: relative;
-  left: 124px;
   align-content: space-between;
-   justify-content: space-around;
-   top: -114px;
+  justify-content: space-around;
+  top: -50px;
 }
 
 .weather-description {
@@ -92,7 +128,16 @@ a {
   top: 50px;
 }
 
-.description {
-  bottom: 5px;
+.temperature-description {
   position: relative;
+  bottom: 36px;
+  left: 40px;
 }
+
+.overview {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
