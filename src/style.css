@@ -69,7 +69,7 @@ img {
 
 .search-form {
   position: relative;
-  display: flex;
+  left: 32px;
 }
 
 .search-field {

@@ -53,7 +53,7 @@ function displayForecast(response) {
         </div>
         <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" alt="" width="42">
         <div class="weather-forecast-temperature">
-          <span class="max-temp">↑${Math.round(forecastDay.temperature.maximum)}&deg;</span> <span class="min-temp">↓29&deg;</span>
+          <span class="max-temp">↑${Math.round(forecastDay.temperature.maximum)}&deg;</span> <span class="min-temp">↓${Math.round(forecastDay.temperature.minimum)}&deg;</span>
         </div>
       </div>
       `
