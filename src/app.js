@@ -23,6 +23,57 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let tomorrowIndex = day + 1 > 6 ? 0 : day + 1;
+  return days[tomorrowIndex];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily; 
+  let forecastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML = 
+      forecastHTML + `
+      <div class="weather-forecast col-2">
+        <div class="weather-forecast-day">
+          ${formatDay(forecastDay.time)}
+        </div>
+        <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${forecastDay.condition.icon}.png" alt="" width="42">
+        <div class="weather-forecast-temperature">
+          <span class="max-temp">↑${Math.round(forecastDay.temperature.maximum)}&deg;</span> <span class="min-temp">↓29&deg;</span>
+        </div>
+      </div>
+      `
+    }
+  })
+            
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let lat = coordinates.latitude;
+  let lon = coordinates.longitude;
+  let apiKey = "dc34aa4b26o1f14aa51aea20t25d63c3";
+  let apiForecastUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=${unit}`;
+  console.log(apiForecastUrl);
+  axios.get(apiForecastUrl).then(displayForecast);
+
+
+}
 
 function displayCurrentWeather(response) {
   console.log(response);
@@ -42,6 +93,7 @@ function displayCurrentWeather(response) {
   icon.setAttribute("src", `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
   icon.setAttribute("alt", response.data.condition.description);
 
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
